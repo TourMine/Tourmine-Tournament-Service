@@ -1,0 +1,6 @@
+@Tourmine.Tournament.API_HostAddress = http://localhost:5210
+
+GET {{Tourmine.Tournament.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

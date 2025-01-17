@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{30AA5213-0311-4845-BD77-9E1BDAD2246D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{6D47A2F9-D475-4D25-AA04-B25728465B11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourmine.Tournament.Application", "src\Application\Tourmine.Tournament.Application\Tourmine.Tournament.Application.csproj", "{3D87F9C9-CB6E-438E-BE1F-130F058BBD13}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{5724A75F-A1D2-4ECE-873E-8B5716DF45EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourmine.Tournament.Domain", "src\Domain\Tourmine.Tournament.Domain\Tourmine.Tournament.Domain.csproj", "{C1BF54D5-9FE2-4E91-BAF3-8FBFC1CDCCCC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{18E6FD67-5863-4A56-ADF4-68CE8549D2FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourmine.Tournament.Infrastructure", "src\Infrastructure\Tourmine.Tournament.Infrastructure\Tourmine.Tournament.Infrastructure.csproj", "{80D7E59C-9737-4D2B-9924-B33BB3391A0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebAPI", "WebAPI", "{B6262154-98D2-4816-8C38-DF5EF7AC0D0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourmine.Tournament.API", "src\WebAPI\Tourmine.Tournament.API\Tourmine.Tournament.API.csproj", "{A6304D2E-D679-4651-9CC5-3823FD20B187}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D87F9C9-CB6E-438E-BE1F-130F058BBD13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D87F9C9-CB6E-438E-BE1F-130F058BBD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D87F9C9-CB6E-438E-BE1F-130F058BBD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D87F9C9-CB6E-438E-BE1F-130F058BBD13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1BF54D5-9FE2-4E91-BAF3-8FBFC1CDCCCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1BF54D5-9FE2-4E91-BAF3-8FBFC1CDCCCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1BF54D5-9FE2-4E91-BAF3-8FBFC1CDCCCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1BF54D5-9FE2-4E91-BAF3-8FBFC1CDCCCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80D7E59C-9737-4D2B-9924-B33BB3391A0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D7E59C-9737-4D2B-9924-B33BB3391A0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D7E59C-9737-4D2B-9924-B33BB3391A0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D7E59C-9737-4D2B-9924-B33BB3391A0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6304D2E-D679-4651-9CC5-3823FD20B187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6304D2E-D679-4651-9CC5-3823FD20B187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6304D2E-D679-4651-9CC5-3823FD20B187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6304D2E-D679-4651-9CC5-3823FD20B187}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6D47A2F9-D475-4D25-AA04-B25728465B11} = {30AA5213-0311-4845-BD77-9E1BDAD2246D}
+		{3D87F9C9-CB6E-438E-BE1F-130F058BBD13} = {6D47A2F9-D475-4D25-AA04-B25728465B11}
+		{5724A75F-A1D2-4ECE-873E-8B5716DF45EC} = {30AA5213-0311-4845-BD77-9E1BDAD2246D}
+		{C1BF54D5-9FE2-4E91-BAF3-8FBFC1CDCCCC} = {5724A75F-A1D2-4ECE-873E-8B5716DF45EC}
+		{18E6FD67-5863-4A56-ADF4-68CE8549D2FD} = {30AA5213-0311-4845-BD77-9E1BDAD2246D}
+		{80D7E59C-9737-4D2B-9924-B33BB3391A0B} = {18E6FD67-5863-4A56-ADF4-68CE8549D2FD}
+		{B6262154-98D2-4816-8C38-DF5EF7AC0D0A} = {30AA5213-0311-4845-BD77-9E1BDAD2246D}
+		{A6304D2E-D679-4651-9CC5-3823FD20B187} = {B6262154-98D2-4816-8C38-DF5EF7AC0D0A}
+	EndGlobalSection
+EndGlobal
