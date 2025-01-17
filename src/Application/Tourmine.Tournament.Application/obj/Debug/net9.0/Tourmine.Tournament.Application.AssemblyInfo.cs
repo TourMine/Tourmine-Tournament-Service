@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tourmine.Tournament.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+221e0f5965d9e1d8bed241dd30da492f67efa8d8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tourmine.Tournament.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tourmine.Tournament.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

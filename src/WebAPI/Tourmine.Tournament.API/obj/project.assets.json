@@ -33,29 +33,6 @@
             "related": ".pdb;.xml"
           }
         }
-      },
-      "Tourmine.Tournament.Application/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "dependencies": {
-          "Tourmine.Tournament.Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Tourmine.Tournament.Application.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Tourmine.Tournament.Application.dll": {}
-        }
-      },
-      "Tourmine.Tournament.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "compile": {
-          "bin/placeholder/Tourmine.Tournament.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Tourmine.Tournament.Domain.dll": {}
-        }
       }
     }
   },
@@ -90,22 +67,11 @@
         "microsoft.openapi.1.6.17.nupkg.sha512",
         "microsoft.openapi.nuspec"
       ]
-    },
-    "Tourmine.Tournament.Application/1.0.0": {
-      "type": "project",
-      "path": "../../Application/Tourmine.Tournament.Application/Tourmine.Tournament.Application.csproj",
-      "msbuildProject": "../../Application/Tourmine.Tournament.Application/Tourmine.Tournament.Application.csproj"
-    },
-    "Tourmine.Tournament.Domain/1.0.0": {
-      "type": "project",
-      "path": "../../Domain/Tourmine.Tournament.Domain/Tourmine.Tournament.Domain.csproj",
-      "msbuildProject": "../../Domain/Tourmine.Tournament.Domain/Tourmine.Tournament.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "Microsoft.AspNetCore.OpenApi >= 9.0.0",
-      "Tourmine.Tournament.Application >= 1.0.0"
+      "Microsoft.AspNetCore.OpenApi >= 9.0.0"
     ]
   },
   "packageFolders": {
@@ -140,11 +106,7 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {
-            "C:\\IFPB\\TourMine\\tourmine-tournament-service\\src\\Application\\Tourmine.Tournament.Application\\Tourmine.Tournament.Application.csproj": {
-              "projectPath": "C:\\IFPB\\TourMine\\tourmine-tournament-service\\src\\Application\\Tourmine.Tournament.Application\\Tourmine.Tournament.Application.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

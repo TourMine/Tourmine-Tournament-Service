@@ -1,1 +1,45 @@
 .vs/
+
+# Ignore arquivos gerados automaticamente
+src/**/obj/
+src/**/bin/
+
+# Ignore as pastas bin e obj em todos os níveis
+**/bin/
+**/obj/
+
+# Ignore arquivos temporários e de cache gerados pelo MSBuild
+**/*.cache
+**/*.pdb
+**/*.sourcelink.json
+**/*.deps.json
+**/*.runtimeconfig.json
+**/*.AssemblyInfo.cs
+**/*.csproj.FileListAbsolute.txt
+**/*.csproj.CoreCompileInputs.cache
+**/*.csproj.AssemblyReference.cache
+**/*.GeneratedMSBuildEditorConfig.editorconfig
+
+# Ignore arquivos e pastas específicos do Visual Studio
+.vs/
+*.user
+*.suo
+
+# Ignore pacotes gerados
+*.nupkg
+*.snupkg
+
+# Ignore logs e relatórios de diagnóstico
+*.log
+**/*.tlog
+
+# Ignore arquivos de publicação e empacotamento
+publish/
+*.Publish.xml
+
+# Ignore configurações de build específicas
+appsettings.Development.json
+
+# Ignore outros arquivos temporários
+*.tmp
+*.temp

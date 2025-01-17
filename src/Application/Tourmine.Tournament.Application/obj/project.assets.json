@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {
-      "Tourmine.Tournament.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "compile": {
-          "bin/placeholder/Tourmine.Tournament.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Tourmine.Tournament.Domain.dll": {}
-        }
-      }
-    }
+    "net9.0": {}
   },
-  "libraries": {
-    "Tourmine.Tournament.Domain/1.0.0": {
-      "type": "project",
-      "path": "../../Domain/Tourmine.Tournament.Domain/Tourmine.Tournament.Domain.csproj",
-      "msbuildProject": "../../Domain/Tourmine.Tournament.Domain/Tourmine.Tournament.Domain.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net9.0": [
-      "Tourmine.Tournament.Domain >= 1.0.0"
-    ]
+    "net9.0": []
   },
   "packageFolders": {
     "C:\\Users\\caio.miranda\\.nuget\\packages\\": {},
@@ -58,11 +39,7 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {
-            "C:\\IFPB\\TourMine\\tourmine-tournament-service\\src\\Domain\\Tourmine.Tournament.Domain\\Tourmine.Tournament.Domain.csproj": {
-              "projectPath": "C:\\IFPB\\TourMine\\tourmine-tournament-service\\src\\Domain\\Tourmine.Tournament.Domain\\Tourmine.Tournament.Domain.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
