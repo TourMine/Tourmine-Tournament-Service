@@ -11,7 +11,7 @@ namespace Tourmine.Tournament.Infrastructure.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            // adiciona aqui
         }
     }
 }
