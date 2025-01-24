@@ -5,11 +5,11 @@
 src/**/obj/
 src/**/bin/
 
-# Ignore as pastas bin e obj em todos os níveis
+# Ignore as pastas bin e obj em todos os n�veis
 **/bin/
 **/obj/
 
-# Ignore arquivos temporários e de cache gerados pelo MSBuild
+# Ignore arquivos tempor�rios e de cache gerados pelo MSBuild
 **/*.cache
 **/*.pdb
 **/*.sourcelink.json
