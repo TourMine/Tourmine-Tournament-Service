@@ -2,9 +2,11 @@
 
 namespace Tourmine.Tournament.Infrastructure.Context
 {
-    public class AppDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        public DbSet<Domain.Entities.TournamentManagement.Tournament> Tournaments { get; set; }
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
             
         }

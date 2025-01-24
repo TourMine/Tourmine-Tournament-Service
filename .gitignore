@@ -8,7 +8,8 @@ src/**/bin/
 **/bin/
 **/obj/
 
-**/obj/
+src/**/obj/**
+./obj/
 
 # Ignore arquivos tempor�rios e de cache gerados pelo MSBuild
 **/*.cache

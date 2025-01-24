@@ -1,41 +1,35 @@
+using Tourmine.Tournament.Application.Interface.TournamentManagement;
+using Tourmine.Tournament.Application.UseCases.TournamentManagement;
+using Tourmine.Tournament.Domain.Interfaces.Repositories;
+using Tourmine.Tournament.Infrastructure.Persistence.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+// Adiciona os serviços necessários para Swagger
+builder.Services.AddControllers(); // Adiciona o controller
+builder.Services.AddEndpointsApiExplorer(); // Adiciona o endpoint no swagger
+builder.Services.AddSwaggerGen();  // Adiciona o swagger
+
+// Add Mediator DI
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+
+// UseCase DI
+builder.Services.AddScoped<ICreateTournamentUseCase, CreateTournamentUseCase>();
+
+// Repository DI
+builder.Services.AddScoped<ITournamentRepository, TournamentRepository>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger(); // Habilita o Swagger
+
+    // Habilita a interface gráfica do Swagger UI
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
-
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

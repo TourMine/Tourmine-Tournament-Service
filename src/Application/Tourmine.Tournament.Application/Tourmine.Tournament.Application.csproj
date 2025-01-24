@@ -6,11 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-<<<<<<< HEAD
-=======
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\Tourmine.Tournament.Domain\Tourmine.Tournament.Domain.csproj" />
   </ItemGroup>
-
->>>>>>> 08cf8eb (config de paginas)
 </Project>
