@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Tourmine.Tournament.Domain\Tourmine.Tournament.Domain.csproj" />
+  </ItemGroup>
+
+>>>>>>> 08cf8eb (config de paginas)
 </Project>
