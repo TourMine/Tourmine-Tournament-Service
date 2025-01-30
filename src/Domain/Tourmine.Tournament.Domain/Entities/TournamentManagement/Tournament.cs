@@ -5,7 +5,7 @@ namespace Tourmine.Tournament.Domain.Entities.TournamentManagement
     public class Tournament : BaseEntity
     {
         public Guid UserId { get; set; }
-        public Guid Name { get; set; }
+        public string Name { get; set; }
         public string Game { get; set; }
         public EPlataforms Plataform { get; set; }
         public int MaxTeams { get; set; }
