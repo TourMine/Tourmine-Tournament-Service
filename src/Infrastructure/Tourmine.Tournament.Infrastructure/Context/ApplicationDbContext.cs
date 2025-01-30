@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Tourmine.Tournament.Infrastructure.Mappings;
 
 namespace Tourmine.Tournament.Infrastructure.Context
 {
@@ -11,9 +12,19 @@ namespace Tourmine.Tournament.Infrastructure.Context
             
         }
 
+        public ApplicationDbContext() : base()
+        {
+
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseNpgsql(Settings.ConnectionString);
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // adiciona aqui
+            modelBuilder.ApplyConfiguration(new TournamentMap());
         }
     }
 }
