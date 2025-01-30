@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .vs/
 
 # Ignore arquivos gerados automaticamente
@@ -8,6 +7,9 @@ src/**/bin/
 # Ignore as pastas bin e obj em todos os n�veis
 **/bin/
 **/obj/
+
+src/**/obj/**
+./obj/
 
 # Ignore arquivos tempor�rios e de cache gerados pelo MSBuild
 **/*.cache
@@ -44,9 +46,8 @@ appsettings.Development.json
 # Ignore outros arquivos temporários
 *.tmp
 *.temp
-=======
 .vs/
->>>>>>> 08cf8eb (config de paginas)
+
 /src/Infrastructure/Tourmine.Tournament.Infrastructure/obj/Debug/net9.0/Tourmine.Tournament.Infrastructure.csproj.AssemblyReference.cache
 /src/Domain/Tourmine.Tournament.Domain/obj/Debug/net9.0/Tourmine.Tournament.Domain.AssemblyInfo.cs
 /src/Domain/Tourmine.Tournament.Domain/obj/Debug/net9.0/Tourmine.Tournament.Domain.AssemblyInfoInputs.cache
@@ -70,3 +71,6 @@ appsettings.Development.json
 /src/Application/Tourmine.Tournament.Application/obj/project.assets.json
 /src/Application/Tourmine.Tournament.Application/obj/project.nuget.cache
 /src/Application/Tourmine.Tournament.Application/obj/Tourmine.Tournament.Application.csproj.nuget.dgspec.json
+/src/Infrastructure/Tourmine.Tournament.Infrastructure/obj/Debug/net9.0/Tourmine.Tournament.Infrastructure.assets.cache
+/src/Infrastructure/Tourmine.Tournament.Infrastructure/obj/Debug/net9.0/Tourmine.Tournament.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/src/WebAPI/Tourmine.Tournament.API/obj/Debug/net9.0/Tourmine.Tournament.API.assets.cache
