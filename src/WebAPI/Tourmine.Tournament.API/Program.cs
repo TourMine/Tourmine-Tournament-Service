@@ -10,8 +10,22 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Adiciona os serviços necessários para Swagger
 builder.Services.AddControllers(); // Adiciona o controller
-builder.Services.AddEndpointsApiExplorer(); // Adiciona o endpoint no swagger
-builder.Services.AddSwaggerGen();  // Adiciona o swagger
+builder.Services.AddEndpointsApiExplorer(); // Adiciona o endpoint no Swagger
+builder.Services.AddSwaggerGen();  // Adiciona o Swagger
+
+// Configuração de CORS
+var corsPolicy = "_myAllowSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: corsPolicy,
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200") // Permite Angular consumir a API
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
 
 // Add Mediator DI
 builder.Services.AddMediatR(cfg =>
@@ -28,18 +42,19 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var app = builder.Build();
 
-
-// Configure the HTTP request pipeline.
+// Configure o pipeline da aplicação
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger(); // Habilita o Swagger
-
-    // Habilita a interface gráfica do Swagger UI
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(); // Habilita a interface gráfica do Swagger UI
 }
 
-app.MapControllers(); // Mapear os controladores
-
 app.UseHttpsRedirection();
+
+app.UseCors(corsPolicy); 
+
+app.MapControllers(); 
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 app.Run();

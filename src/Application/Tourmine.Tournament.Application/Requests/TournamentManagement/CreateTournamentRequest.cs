@@ -4,7 +4,7 @@ namespace Tourmine.Tournament.Application.Requests.TournamentManagement
 {
     public class CreateTournamentRequest
     {
-        public Guid Name  { get; set; }
+        public string Name  { get; set; }
         public string Game  { get; set; }
         public EPlataforms Plataform { get; set; }
         public int MaxTeams  { get; set; }
