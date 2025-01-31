@@ -31,7 +31,7 @@ WORKDIR /app
 COPY --from=build /app/out .
 
 # Exponha a porta onde o serviço irá rodar
-EXPOSE 80
+EXPOSE 8080
 
 # Defina o comando para iniciar o aplicativo
 ENTRYPOINT ["dotnet", "Tourmine.Tournament.API.dll"]
