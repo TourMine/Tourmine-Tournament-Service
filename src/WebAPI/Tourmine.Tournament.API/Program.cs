@@ -8,12 +8,12 @@ using Tourmine.Tournament.Infrastructure.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Adiciona os serviÁos necess·rios para Swagger
+// Adiciona os servi√ßos necess√°rios para Swagger
 builder.Services.AddControllers(); // Adiciona o controller
 builder.Services.AddEndpointsApiExplorer(); // Adiciona o endpoint no Swagger
 builder.Services.AddSwaggerGen();  // Adiciona o Swagger
 
-// ConfiguraÁ„o de CORS
+// Configura√ß√£o de CORS
 var corsPolicy = "_myAllowSpecificOrigins";
 
 builder.Services.AddCors(options =>
@@ -33,6 +33,9 @@ builder.Services.AddMediatR(cfg =>
 
 // UseCase DI
 builder.Services.AddScoped<ICreateTournamentUseCase, CreateTournamentUseCase>();
+builder.Services.AddScoped<IGetTournamentByIdUseCase, GetTournamentByIdUseCase>();
+builder.Services.AddScoped<IUpdateTournamentUseCase, UpdateTournamentUseCase>();
+builder.Services.AddScoped<IGetTournamentAllUseCase, GetTournamentAllUseCase>();
 
 // Repository DI
 builder.Services.AddScoped<ITournamentRepository, TournamentRepository>();
@@ -42,11 +45,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var app = builder.Build();
 
-// Configure o pipeline da aplicaÁ„o
+// Configure o pipeline da aplica√ß√£o
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger(); // Habilita o Swagger
-    app.UseSwaggerUI(); // Habilita a interface gr·fica do Swagger UI
+    app.UseSwaggerUI(); // Habilita a interface gr√°fica do Swagger UI
 }
 
 app.UseHttpsRedirection();
