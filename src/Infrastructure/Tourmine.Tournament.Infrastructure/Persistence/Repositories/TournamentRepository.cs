@@ -58,7 +58,10 @@ namespace Tourmine.Tournament.Infrastructure.Persistence.Repositories
 
                 return entity;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         
         public async Task<List<Domain.Entities.TournamentManagement.Tournament>> GetAll(int start, int limit, EPlataforms? plataforms, EParticipantsType? teamsTypes, ESubscriptionType? subscriptionTypes)

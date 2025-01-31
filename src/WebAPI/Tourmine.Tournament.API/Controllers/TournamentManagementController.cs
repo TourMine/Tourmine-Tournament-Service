@@ -37,11 +37,12 @@ namespace Tourmine.Tournament.API.Controller
             {
                 return NotFound(knex.Message);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
             }
-            
+        }
+
         [HttpGet("v1/all")]
         public async Task<IActionResult> GetAll([FromQuery] GetTournamentAllRequest request, [FromServices] IGetTournamentAllUseCase useCase, int start = 0, int limit = LIMIT)
         {
