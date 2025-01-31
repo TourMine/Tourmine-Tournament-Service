@@ -4,9 +4,16 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 # Defina o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
-# Copie o arquivo de solução e restaure as dependências
-COPY *.sln ./
-COPY src/**/*.csproj ./src/
+# Copie o arquivo de solução
+COPY Tourmine.Tournament.Service.sln ./
+
+# Copie todos os arquivos .csproj dos projetos
+COPY src/Application/Tourmine.Tournament.Application/Tourmine.Tournament.Application.csproj ./src/Application/Tourmine.Tournament.Application/
+COPY src/Domain/Tourmine.Tournament.Domain/Tourmine.Tournament.Domain.csproj ./src/Domain/Tourmine.Tournament.Domain/
+COPY src/Infrastructure/Tourmine.Tournament.Infrastructure/Tourmine.Tournament.Infrastructure.csproj ./src/Infrastructure/Tourmine.Tournament.Infrastructure/
+COPY src/WebAPI/Tourmine.Tournament.API/Tourmine.Tournament.API.csproj ./src/WebAPI/Tourmine.Tournament.API/
+
+# Restaure as dependências
 RUN dotnet restore
 
 # Copie o restante do código do projeto
