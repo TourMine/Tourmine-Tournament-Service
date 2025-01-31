@@ -1,4 +1,5 @@
-﻿using Tourmine.Tournament.Domain.Interfaces.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using Tourmine.Tournament.Domain.Interfaces.Repositories;
 using Tourmine.Tournament.Infrastructure.Context;
 
 namespace Tourmine.Tournament.Infrastructure.Persistence.Repositories
@@ -25,6 +26,20 @@ namespace Tourmine.Tournament.Infrastructure.Persistence.Repositories
                 }
 
                 return false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<Domain.Entities.TournamentManagement.Tournament?> GetById(Guid id)
+        {
+            try
+            {
+                return await _context.Tournaments
+                    .Where(tournament => tournament.Id == id)
+                    .SingleOrDefaultAsync();
             }
             catch (Exception ex)
             {
