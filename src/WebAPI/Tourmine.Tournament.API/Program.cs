@@ -52,7 +52,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(); // Habilita a interface gráfica do Swagger UI
 }
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    // Desabilita o redirecionamento HTTPS se não estiver configurado
+    app.UseHttpsRedirection();
+}
 
 app.UseCors(corsPolicy); 
 
