@@ -9,6 +9,8 @@ namespace Tourmine.Tournament.API.Controller
     [Route("tournament")]
     public class TournamentManagementController : ControllerBase
     {
+        private const int LIMIT = 25;
+
         [HttpPost("v1/create")]
         public async Task<IActionResult> Create([FromBody] CreateTournamentRequest request, [FromServices] ICreateTournamentUseCase useCase)
         {
@@ -39,6 +41,16 @@ namespace Tourmine.Tournament.API.Controller
             {
                 return StatusCode(500, ex.Message);
             }
+            
+        [HttpGet("v1/all")]
+        public async Task<IActionResult> GetAll([FromQuery] GetTournamentAllRequest request, [FromServices] IGetTournamentAllUseCase useCase, int start = 0, int limit = LIMIT)
+        {
+            var result = await useCase.Execute(start, limit, request);
+            return Ok(new 
+            { 
+                total = result.Count,
+                items = result
+            });
         }
     }
 }
