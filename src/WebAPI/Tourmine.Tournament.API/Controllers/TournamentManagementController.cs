@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Tourmine.Tournament.Application.Interface.TournamentManagement;
 using Tourmine.Tournament.Application.Requests.TournamentManagement;
 
@@ -20,6 +21,24 @@ namespace Tourmine.Tournament.API.Controller
         {
             var result = await useCase.Execute(id);
             return Ok(result);
+        }
+
+        [HttpPut("v1/{id}")]
+        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateTournamentRequest request, [FromServices] IUpdateTournamentUseCase useCase)
+        {
+            try
+            {
+                var result = await useCase.Execute(id, request);
+                return Ok(result);
+            }
+            catch (KeyNotFoundException knex)
+            {
+                return NotFound(knex.Message);
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

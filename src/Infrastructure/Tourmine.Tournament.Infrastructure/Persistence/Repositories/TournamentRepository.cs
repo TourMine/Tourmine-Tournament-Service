@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Tourmine.Tournament.Domain.Entities.TournamentManagement;
 using Tourmine.Tournament.Domain.Interfaces.Repositories;
 using Tourmine.Tournament.Infrastructure.Context;
 
@@ -42,6 +43,21 @@ namespace Tourmine.Tournament.Infrastructure.Persistence.Repositories
                     .SingleOrDefaultAsync();
             }
             catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<Domain.Entities.TournamentManagement.Tournament> Update(Domain.Entities.TournamentManagement.Tournament entity)
+        {
+            try
+            {
+                _context.Update(entity);
+                var result = await _context.SaveChangesAsync();
+
+                return entity;
+            }
+            catch (Exception ex) 
             {
                 throw new Exception(ex.Message);
             }
