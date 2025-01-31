@@ -21,7 +21,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: corsPolicy,
         policy =>
         {
-            policy.AllowAnyOrigin()  // Permite qualquer origem
+            policy.WithOrigins("http://localhost:4200") // Permite Angular consumir a API
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -52,11 +52,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(); // Habilita a interface gráfica do Swagger UI
 }
 
-if (!app.Environment.IsDevelopment())
-{
-    // Desabilita o redirecionamento HTTPS se não estiver configurado
-    app.UseHttpsRedirection();
-}
+app.UseHttpsRedirection();
 
 app.UseCors(corsPolicy); 
 
