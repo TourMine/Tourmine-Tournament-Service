@@ -33,6 +33,7 @@ builder.Services.AddMediatR(cfg =>
 
 // UseCase DI
 builder.Services.AddScoped<ICreateTournamentUseCase, CreateTournamentUseCase>();
+builder.Services.AddScoped<IGetTournamentByIdUseCase, GetTournamentByIdUseCase>();
 
 // Repository DI
 builder.Services.AddScoped<ITournamentRepository, TournamentRepository>();

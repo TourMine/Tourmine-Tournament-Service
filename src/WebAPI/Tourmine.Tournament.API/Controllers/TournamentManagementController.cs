@@ -14,5 +14,12 @@ namespace Tourmine.Tournament.API.Controller
             var result = await useCase.Execute(request);
             return Ok(result);
         }
+
+        [HttpGet("v1/{id}")]
+        public async Task<IActionResult> GetById([FromRoute] Guid id, [FromServices] IGetTournamentByIdUseCase useCase)
+        {
+            var result = await useCase.Execute(id);
+            return Ok(result);
+        }
     }
 }
