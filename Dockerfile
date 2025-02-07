@@ -17,7 +17,7 @@ COPY src/WebAPI/Tourmine.Tournament.API/Tourmine.Tournament.API.csproj ./src/Web
 RUN dotnet restore
 
 # Copie o restante do código do projeto
-COPY . ./
+COPY src ./src
 
 # Compile o projeto
 RUN dotnet publish -c Release -o /app/out
