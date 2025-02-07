@@ -48,12 +48,12 @@ var app = builder.Build();
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 app.Urls.Add($"http://0.0.0.0:{port}");
 
-// Configure o pipeline da aplicação
-if (app.Environment.IsDevelopment())
+app.UseSwagger(); // Habilita o Swagger
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger(); // Habilita o Swagger
-    app.UseSwaggerUI(); // Habilita a interface gráfica do Swagger UI
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+    c.RoutePrefix = "swagger";
+});
 
 //app.UseHttpsRedirection();
 
