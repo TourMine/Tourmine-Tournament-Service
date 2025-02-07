@@ -16,9 +16,6 @@ builder.Services.AddSwaggerGen();  // Adiciona o Swagger
 // Configuração de CORS
 var corsPolicy = "_myAllowSpecificOrigins";
 
-var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-app.Urls.Add($"http://0.0.0.0:{port}");
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: corsPolicy,
@@ -47,6 +44,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString(Settings.ConnectionString)));
 
 var app = builder.Build();
+
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+app.Urls.Add($"http://0.0.0.0:{port}");
 
 // Configure o pipeline da aplicação
 if (app.Environment.IsDevelopment())
