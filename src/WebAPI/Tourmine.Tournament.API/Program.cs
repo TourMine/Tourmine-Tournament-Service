@@ -16,6 +16,9 @@ builder.Services.AddSwaggerGen();  // Adiciona o Swagger
 // Configuração de CORS
 var corsPolicy = "_myAllowSpecificOrigins";
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+app.Urls.Add($"http://0.0.0.0:{port}");
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: corsPolicy,
