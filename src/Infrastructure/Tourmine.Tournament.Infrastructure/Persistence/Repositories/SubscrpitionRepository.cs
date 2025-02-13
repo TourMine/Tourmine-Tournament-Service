@@ -34,14 +34,19 @@ namespace Tourmine.Tournament.Infrastructure.Persistence.Repositories
             }
         }
 
-        public async Task<Subscription> Update(Subscription subscription)
+        public async Task<bool> Update(Subscription subscription)
         {
             try
             {
                 _context.Update(subscription);
                 var result = await _context.SaveChangesAsync();
 
-                return subscription;
+                if (result > 0)
+                {
+                    return true;
+                }
+
+                return false;
             }
             catch (Exception ex)
             {
