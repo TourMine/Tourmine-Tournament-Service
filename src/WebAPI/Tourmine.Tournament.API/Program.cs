@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Tourmine.Tournament.Application.Interface.TournamentManagement;
+using Tourmine.Tournament.Application.Interfaces.SubscriptionManagement;
+using Tourmine.Tournament.Application.UseCases.SubscriptionManagement;
 using Tourmine.Tournament.Application.UseCases.TournamentManagement;
 using Tourmine.Tournament.Domain.Interfaces.Repositories;
 using Tourmine.Tournament.Infrastructure;
@@ -37,8 +39,13 @@ builder.Services.AddScoped<IGetTournamentByIdUseCase, GetTournamentByIdUseCase>(
 builder.Services.AddScoped<IUpdateTournamentUseCase, UpdateTournamentUseCase>();
 builder.Services.AddScoped<IGetTournamentAllUseCase, GetTournamentAllUseCase>();
 
+builder.Services.AddScoped<ICreateSubscriptionUseCase, CreateSubscriptionUseCase>();
+builder.Services.AddScoped<IUpdateSubscriptionUseCase, UpdateSubscriptionUseCase>();
+builder.Services.AddScoped<IGetAllSubscriptionByUserIdUseCase, GetAllSubscriptionByUserIdUseCase>();
+
 // Repository DI
 builder.Services.AddScoped<ITournamentRepository, TournamentRepository>();
+builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString(Settings.ConnectionString)));
@@ -46,14 +53,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 var app = builder.Build();
 
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-app.Urls.Add($"http://0.0.0.0:{port}");
-
-app.UseSwagger(); // Habilita o Swagger
-app.UseSwaggerUI(c =>
+if (app.Environment.IsDevelopment())
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
-    c.RoutePrefix = "swagger";
-});
+    app.UseSwagger(); // Habilita o Swagger
+    app.UseSwaggerUI(); // Habilita a interface gráfica do Swagger UI
+}
 
 //app.UseHttpsRedirection();
 

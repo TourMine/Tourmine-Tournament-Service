@@ -2,6 +2,8 @@
 {
     public static class Settings
     {
-        public static string ConnectionString = "Host=viaduct.proxy.rlwy.net;Port=29627;Username=postgres;Password=ZFQtxTLFTAedMZwXNqmboAbDpnXmFhga;Database=railway";
+
+        public static string ConnectionString = "Host=LocalHost;Port=5432;Database=tourmine;Username=postgres;Password=postgres;";
+
     }
 }
