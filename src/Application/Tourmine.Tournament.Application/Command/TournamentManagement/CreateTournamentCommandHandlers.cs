@@ -22,7 +22,7 @@ namespace Tourmine.Tournament.Application.Command.TournamentManagement
         {
             return new Domain.Entities.TournamentManagement.Tournament
             {
-                UserId = Guid.NewGuid(), // TODO: simulando, por enquanto não temos autenticação
+                UserId = request.UserId,
                 Name = request.Name,
                 Game = request.Game,
                 Plataform = request.Plataform,
