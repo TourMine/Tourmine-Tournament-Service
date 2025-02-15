@@ -7,17 +7,17 @@ namespace Tourmine.Tournament.Application.Command.TournamentManagement
 {
     public class UpdateSubscriptionCommandHandler : IRequestHandler<UpdateSubscriptionCommand, bool>
     {
-        private readonly ISubscriptionRepository _subcriptionRepository;
-        public UpdateSubscriptionCommandHandler(ISubscriptionRepository subcriptionRepository)
+        private readonly ISubscriptionRepository _subscriptionRepository;
+        public UpdateSubscriptionCommandHandler(ISubscriptionRepository subscriptionRepository)
         {
-            _subcriptionRepository = subcriptionRepository;
+            _subscriptionRepository = subscriptionRepository;
         }
 
         public async Task<bool> Handle(UpdateSubscriptionCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var existingSubscription = await _subcriptionRepository.GetByIds(request.TournamentId, request.UserId);
+                var existingSubscription = await _subscriptionRepository.GetByIds(request.TournamentId, request.UserId);
 
                 if (existingSubscription == null)
                 {
@@ -26,7 +26,7 @@ namespace Tourmine.Tournament.Application.Command.TournamentManagement
 
                 var updatedEntity = ToUpdate(existingSubscription, request.Request);
 
-                return await _subcriptionRepository.Update(updatedEntity);
+                return await _subscriptionRepository.Update(updatedEntity);
             }
             catch (Exception ex)
             {

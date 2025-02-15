@@ -6,7 +6,7 @@ using Tourmine.Tournament.Application.Requests.TournamentManagement;
 namespace Tourmine.Tournament.API.Controller
 {
     [ApiController]
-    [Route("subcription")]
+    [Route("subscription")]
     public class SubscriptionController : ControllerBase
     {
         private const int LIMIT = 25;
