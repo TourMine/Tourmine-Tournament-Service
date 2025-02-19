@@ -7,10 +7,10 @@
         public BaseEntity()
         {
             Id = Guid.NewGuid();
-            CreatedDate = DateTime.Now; 
+            CreatedDate = DateTimeOffset.Now; 
         }
 
-        public DateTime CreatedDate { get; set; }
-        public DateTime? ModifiedDate { get; set; }
+        public DateTimeOffset CreatedDate { get; set; }
+        public DateTimeOffset? ModifiedDate { get; set; }
     }
 }

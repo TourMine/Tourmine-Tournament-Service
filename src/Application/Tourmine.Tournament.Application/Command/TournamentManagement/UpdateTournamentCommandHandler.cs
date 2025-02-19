@@ -46,7 +46,7 @@ namespace Tourmine.Tournament.Application.Command.TournamentManagement
             entity.SubscriptionType = request.SubscriptionType;
             entity.Status = request.Status;
             entity.Description = request.Description;
-            entity.ModifiedDate = DateTime.Now;
+            entity.ModifiedDate = DateTimeOffset.Now;
 
             return entity;
         }

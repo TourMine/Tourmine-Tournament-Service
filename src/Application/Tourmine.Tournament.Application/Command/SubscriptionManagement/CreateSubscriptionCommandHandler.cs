@@ -26,7 +26,7 @@ namespace Tourmine.Tournament.Application.Command.SubscriptionManagement
             {
                 UserId = request.UserId,
                 TournamentId = request.TournamentId,
-                SubscrpitionDate = DateTime.UtcNow,
+                SubscrpitionDate = DateTimeOffset.UtcNow,
                 Status = ESubscriptionStatus.ACTIVE
             };
         }
