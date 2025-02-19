@@ -6,7 +6,7 @@ using Tourmine.Tournament.Application.Requests.TournamentManagement;
 namespace Tourmine.Tournament.API.Controller
 {
     [ApiController]
-    [Route("subcription")]
+    [Route("subscription")]
     public class SubscriptionController : ControllerBase
     {
         private const int LIMIT = 25;
@@ -57,15 +57,15 @@ namespace Tourmine.Tournament.API.Controller
             }
         }
 
-        //[HttpGet("v1/all")]
-        //public async Task<IActionResult> GetAll([FromQuery] GetTournamentAllRequest request, [FromServices] IGetTournamentAllUseCase useCase, int start = 0, int limit = LIMIT)
-        //{
-        //    var result = await useCase.Execute(start, limit, request);
-        //    return Ok(new
-        //    {
-        //        total = result.Count,
-        //        items = result
-        //    });
-        //}
+        [HttpGet("v1/get-by-tournamentId/{tournamentId}")]
+        public async Task<IActionResult> GetAll([FromRoute] Guid tournamentId, [FromQuery] GetAllSubscriptionByTournamentIdRequest request, [FromServices] IGetAllSubscriptionByTournamentIdUseCase useCase)
+        {
+            var result = await useCase.Execute(tournamentId, request);
+            return Ok(new
+            {
+                total = result.Count,
+                items = result
+            });
+        }
     }
 }
