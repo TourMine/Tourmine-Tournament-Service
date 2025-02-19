@@ -14,10 +14,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourmine.Tournament.Domain", "src\Domain\Tourmine.Tournament.Domain\Tourmine.Tournament.Domain.csproj", "{C1BF54D5-9FE2-4E91-BAF3-8FBFC1CDCCCC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{18E6FD67-5863-4A56-ADF4-68CE8549D2FD}"
+	ProjectSection(SolutionItems) = preProject
+		src\WebAPI\Tourmine.Tournament.API\Dockerfile = src\WebAPI\Tourmine.Tournament.API\Dockerfile
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourmine.Tournament.Infrastructure", "src\Infrastructure\Tourmine.Tournament.Infrastructure\Tourmine.Tournament.Infrastructure.csproj", "{80D7E59C-9737-4D2B-9924-B33BB3391A0B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebAPI", "WebAPI", "{B6262154-98D2-4816-8C38-DF5EF7AC0D0A}"
+	ProjectSection(SolutionItems) = preProject
+		src\WebAPI\Tourmine.Tournament.API\Dockerfile = src\WebAPI\Tourmine.Tournament.API\Dockerfile
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourmine.Tournament.API", "src\WebAPI\Tourmine.Tournament.API\Tourmine.Tournament.API.csproj", "{A6304D2E-D679-4651-9CC5-3823FD20B187}"
 EndProject
@@ -25,9 +31,6 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3D87F9C9-CB6E-438E-BE1F-130F058BBD13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -46,6 +49,9 @@ Global
 		{A6304D2E-D679-4651-9CC5-3823FD20B187}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6304D2E-D679-4651-9CC5-3823FD20B187}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6304D2E-D679-4651-9CC5-3823FD20B187}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6D47A2F9-D475-4D25-AA04-B25728465B11} = {30AA5213-0311-4845-BD77-9E1BDAD2246D}
