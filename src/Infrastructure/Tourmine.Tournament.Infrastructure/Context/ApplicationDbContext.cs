@@ -11,7 +11,7 @@ namespace Tourmine.Tournament.Infrastructure.Context
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            
+
         }
 
         public ApplicationDbContext() : base()
@@ -19,15 +19,15 @@ namespace Tourmine.Tournament.Infrastructure.Context
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql(Settings.ConnectionString);
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseNpgsql(Settings.ConnectionString);
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
-            
+
             //modelBuilder.ApplyConfiguration(new TournamentMap());
         }
     }

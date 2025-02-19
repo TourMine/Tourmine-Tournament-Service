@@ -1,0 +1,39 @@
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: src/WebAPI/Tourmine.Tournament.API/Dockerfile
+    container_name: tournament-api
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=tournament-db;Port=5432;Database=tournament;Username=admin;Password=secret
+    depends_on:
+      - db
+    networks:
+      - tournament-network
+
+    
+  db:
+    image: postgres:latest
+    container_name: tournament-db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: tournament
+      TZ: "UTC"
+    networks:
+      - tournament-network
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Ajusta o fuso horário do PostgreSQL diretamente no comando
+
+
+volumes:
+  postgres_data:
+
+networks:
+  tournament-network:
