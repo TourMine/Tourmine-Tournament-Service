@@ -14,21 +14,10 @@ namespace Tourmine.Tournament.Infrastructure.Context
 
         }
 
-        public ApplicationDbContext() : base()
-        {
-
-        }
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseNpgsql(Settings.ConnectionString);
-        //}
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
-
-            //modelBuilder.ApplyConfiguration(new TournamentMap());
+            modelBuilder.ApplyConfiguration(new TournamentMap());
+            modelBuilder.ApplyConfiguration(new SubscriptionMap());
         }
     }
 }
