@@ -6,9 +6,11 @@ using Tourmine.Tournament.Application.UseCases.TournamentManagement;
 using Tourmine.Tournament.Domain.Entities.TournamentManagement;
 using Tourmine.Tournament.Domain.Enums;
 using Tourmine.Tournament.Domain.Interfaces.Repositories;
+using Tourmine.Tournament.Domain.Interfaces.Services;
 using Tourmine.Tournament.Infrastructure;
 using Tourmine.Tournament.Infrastructure.Context;
 using Tourmine.Tournament.Infrastructure.Persistence.Repositories;
+using Tourmine.Tournament.Infrastructure.Persistence.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +44,9 @@ builder.Services.AddCors(options =>
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
 
+// RabbitMq
+builder.Services.AddSingleton<IRabbitMqPublisher, RabbitMqPublisher>();
+
 // UseCase DI
 builder.Services.AddScoped<ICreateTournamentUseCase, CreateTournamentUseCase>();
 builder.Services.AddScoped<IGetTournamentByIdUseCase, GetTournamentByIdUseCase>();
@@ -70,49 +75,6 @@ if (app.Environment.IsDevelopment())
 }
 
 //app.UseHttpsRedirection();
-
-
-//using (var scope = app.Services.CreateScope())
-//{
-//    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-//    context.Database.Migrate();
-
-//    if (!context.Tournaments.Any())
-//    {
-//        context.Tournaments.AddRange(
-//           new Tournament
-//           {
-//               UserId = Guid.NewGuid(),
-//               Name = "Tournament 1",
-//               Game = "Game 1",
-//               Plataform = EPlataforms.PC,
-//               MaxTeams = 16,
-//               TeamsType = EParticipantsType.DUO,
-//               StartDate = DateTime.Now.AddMonths(1),
-//               EndDate = DateTime.Now.AddMonths(1).AddDays(7),
-//               Prize = "1000 USD",
-//               SubscriptionType = ESubscriptionType.FREE,
-//               Status = ETournamentStatus.Open,
-//               Description = "This is the first tournament for Game 1"
-//           },
-//           new Tournament
-//           {
-//               UserId = Guid.NewGuid(),
-//               Name = "Tournament 2",
-//               Game = "Game 2",
-//               Plataform = EPlataforms.PC,
-//               MaxTeams = 16,
-//               TeamsType = EParticipantsType.DUO,
-//               StartDate = DateTime.Now.AddMonths(1),
-//               EndDate = DateTime.Now.AddMonths(1).AddDays(7),
-//               Prize = "1000 USD",
-//               SubscriptionType = ESubscriptionType.FREE,
-//               Status = ETournamentStatus.Open,
-//               Description = "This is the first tournament for Game 1"
-//           }
-//        );
-//    }
-//}
 
 app.UseCors(corsPolicy);
 
