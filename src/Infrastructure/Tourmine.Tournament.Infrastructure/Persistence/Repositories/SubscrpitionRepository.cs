@@ -92,5 +92,25 @@ namespace Tourmine.Tournament.Infrastructure.Persistence.Repositories
                 throw new Exception(ex.Message);
             }
         }
+
+        public async Task<bool> Cancel(Subscription subscription)
+        {
+            try
+            {
+                _context.Subscriptions.Remove(subscription);
+                var result = await _context.SaveChangesAsync();
+
+                if (result > 0)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

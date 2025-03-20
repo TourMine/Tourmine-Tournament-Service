@@ -8,5 +8,6 @@ namespace Tourmine.Tournament.Domain.Interfaces.Repositories
         Task<Subscription?> GetByIds(Guid tournamentId, Guid userId); 
         Task<List<Subscription>> GetAllByUserId(int start, int limit, Guid userId);
         Task<List<Subscription>> GetAllByTournamentId(int start, int limit, Guid tournamentId);
+        Task<bool> Cancel(Subscription subscription);
     }
 }
