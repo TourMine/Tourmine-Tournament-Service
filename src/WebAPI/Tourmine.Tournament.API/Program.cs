@@ -57,6 +57,7 @@ builder.Services.AddScoped<ICreateSubscriptionUseCase, CreateSubscriptionUseCase
 builder.Services.AddScoped<IUpdateSubscriptionUseCase, UpdateSubscriptionUseCase>();
 builder.Services.AddScoped<IGetAllSubscriptionByUserIdUseCase, GetAllSubscriptionByUserIdUseCase>();
 builder.Services.AddScoped<IGetAllSubscriptionByTournamentIdUseCase, GetAllSubscriptionByTournamentIdUseCase>();
+builder.Services.AddScoped<ICancelSubscriptionUseCase, CancelSubscriptionUseCase>();
 
 // Repository DI
 builder.Services.AddScoped<ITournamentRepository, TournamentRepository>();

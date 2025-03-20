@@ -67,5 +67,16 @@ namespace Tourmine.Tournament.API.Controller
                 items = result
             });
         }
+
+        [HttpDelete("v1/cancel-subscription/{UserId}/{TournamentId}")]
+        public async Task<IActionResult> CancelTournament(
+            [FromRoute] Guid UserId,
+            [FromRoute] Guid TournamentId,
+            [FromServices] ICancelSubscriptionUseCase useCase)
+        {
+            var result = await useCase.Execute(TournamentId, UserId);
+
+            return Ok(result);
+        }
     }
 }
