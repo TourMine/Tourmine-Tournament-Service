@@ -5,10 +5,12 @@ using Tourmine.Tournament.Application.UseCases.SubscriptionManagement;
 using Tourmine.Tournament.Application.UseCases.TournamentManagement;
 using Tourmine.Tournament.Domain.Entities.TournamentManagement;
 using Tourmine.Tournament.Domain.Enums;
+using Tourmine.Tournament.Domain.Interfaces.Caching;
 using Tourmine.Tournament.Domain.Interfaces.Repositories;
 using Tourmine.Tournament.Domain.Interfaces.Services;
 using Tourmine.Tournament.Infrastructure;
 using Tourmine.Tournament.Infrastructure.Context;
+using Tourmine.Tournament.Infrastructure.Persistence.Caching;
 using Tourmine.Tournament.Infrastructure.Persistence.Repositories;
 using Tourmine.Tournament.Infrastructure.Persistence.Service;
 
@@ -65,6 +67,18 @@ builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(Settings.ConnectionString));
+
+
+// Redis
+var redisConfig = builder.Configuration.GetSection("Redis").Get<RedisConfig>();
+
+builder.Services.AddScoped<ICachingService, CachingService>();
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = redisConfig.Configuration; 
+    options.InstanceName = redisConfig.InstanceName; 
+});
+
 
 var app = builder.Build();
 
